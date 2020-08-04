@@ -19,6 +19,15 @@ import history from './history';
 import { updateMeta } from './DOMUtils';
 import router from './router';
 
+import Worker from './file.worker.js';
+
+const worker = new Worker();
+
+worker.postMessage({ a: 1 });
+worker.onmessage = function(event) {};
+
+worker.addEventListener('message', function(event) {});
+
 // Enables critical path CSS rendering
 // https://github.com/kriasoft/isomorphic-style-loader
 const insertCss = (...styles) => {

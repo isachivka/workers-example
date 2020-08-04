@@ -67,6 +67,10 @@ const config = {
     strictExportPresence: true,
 
     rules: [
+      {
+        test: /\.worker\.js$/,
+        use: { loader: 'worker-loader' },
+      },
       // Rules for JS / JSX
       {
         test: reScript,
